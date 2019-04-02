@@ -14,10 +14,10 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/Songmu/modfile/lazyregexp"
+	"github.com/Songmu/modfile/internal/lazyregexp"
 
-	"github.com/Songmu/modfile/module"
-	"github.com/Songmu/modfile/semver"
+	"github.com/Songmu/modfile/internal/module"
+	"github.com/Songmu/modfile/internal/semver"
 )
 
 // A File is the parsed, interpreted form of a go.mod file.

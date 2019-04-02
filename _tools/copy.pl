@@ -20,7 +20,7 @@ while (my $f = readdir $dh) {
 closedir $dh;
 
 for my $dir (qw{cmd/go/internal/semver cmd/go/internal/module internal/lazyregexp}) {
-    my $base = basename $dir;
+    my $base = 'internal/' . basename $dir;
     mkpath $base;
     my $pkg_dir = File::Spec->catfile($ghq_root, $goroot, $dir);
     opendir my $dh, $pkg_dir or die $!;

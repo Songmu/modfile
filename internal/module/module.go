@@ -24,7 +24,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/Songmu/modfile/semver"
+	"github.com/Songmu/modfile/internal/semver"
 )
 
 // A Version is defined by a module path and version pair.
