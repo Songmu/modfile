@@ -15,19 +15,18 @@ my $modfile_dir = File::Spec->catfile($ghq_root, $goroot, 'cmd/go/internal/modfi
 opendir my $dh, $modfile_dir or die $!;
 while (my $f = readdir $dh) {
     next if $f !~ /\.go$/;
-    next if $f =~ /_test\.go$/;
     copy(File::Spec->catfile($modfile_dir, $f), '.');
 }
 closedir $dh;
 
-for my $dir (qw!cmd/go/internal/semver cmd/go/internal/module internal/lazyregexp!) {
-    mkpath basename($dir);
+for my $dir (qw{cmd/go/internal/semver cmd/go/internal/module internal/lazyregexp}) {
+    my $base = basename $dir;
+    mkpath $base;
     my $pkg_dir = File::Spec->catfile($ghq_root, $goroot, $dir);
     opendir my $dh, $pkg_dir or die $!;
     while (my $f = readdir $dh) {
         next if $f !~ /\.go$/;
-        next if $f =~ /_test\.go$/;
-        copy(File::Spec->catfile($pkg_dir, $f), "$dir/");
+        copy(File::Spec->catfile($pkg_dir, $f), "$base/");
     }
     closedir $dh;
 }
