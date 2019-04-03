@@ -8,13 +8,12 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"github.com/Songmu/modfile/internal/lazyregexp"
 	"path/filepath"
 	"sort"
 	"strconv"
 	"strings"
 	"unicode"
-
-	"github.com/Songmu/modfile/internal/lazyregexp"
 
 	"github.com/Songmu/modfile/internal/module"
 	"github.com/Songmu/modfile/internal/semver"
